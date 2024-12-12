@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Регистрация</title>
+    <link href="{{ url_for('static', path='css/auth/sign-up.css') }}" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        Регистрация
+    </header>
+
+    <nav>
+        <a href="/">Главная</a>
+        <a href="/authorization">Авторизация</a>
+    </nav>
+
+    <div class="container">
+        <form action="/sign-up-create-user" method="post">
+            <div class="form-group">
+                <input type="email" id="email" name="email" required placeholder="Введите почту">
+            </div>
+            <div class="form-group">
+                <input type="text" id="username" name="username" required placeholder="Введите логин">
+            </div>
+            <div class="form-group">
+                <input type="password" id="password" name="password" required placeholder="Введите пароль">
+            </div>
+            <div class="form-group">
+                <button type="submit">Регистрация</button>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

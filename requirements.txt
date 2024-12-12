@@ -1,0 +1,10 @@
+bcrypt==4.2.1
+black==24.10.0
+fastapi==0.111.0
+isort==5.13.2
+Jinja2==3.1.2
+ninja2==0.1
+passlib==1.7.4
+peewee==3.17.0
+python-multipart==0.0.9
+starlette==0.37.2

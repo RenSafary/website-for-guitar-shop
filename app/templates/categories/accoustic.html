@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Акустические гитары</title>
+    <link href="{{ url_for('static', path='css/categories/category.css') }}" rel="stylesheet">
+    <style>
+        .accoustic {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Гитары от Мансура</h1>
+    </header>
+    
+    <nav>
+        <a href="/" class="main">Главная</a> |
+        <a href="/accoustic" class="accoustic">Акустические</a> |
+        <a href="/classic">Классические</a> |
+        <a href="/electro">Электрические</a> |
+        <a href="/accessories">Аксессуары</a> |
+        <a href="/cart">Корзина</a> |
+        {% if user %}
+            <a href="/logout">Выход</a>
+            {% if user.is_superuser %}
+            <a href="/adm-panel">Адм.панель</a>
+            {% endif %}
+        {% else %}
+            <a href="/authorization">Авторизация</a>
+        {% endif %}
+    </nav>
+    
+    <form method="post" action="/creating-order">
+        <div class="container">
+            <div class="products">
+                {% for product in products %}
+                <div class="product">
+                    <img src="{{ url_for('static', path='product images/' + product.photo_url) }}" alt="{{ product.name }}">
+                    <h3>{{ product.name }}</h3>
+                    <p>{{ product.description }}</p>
+                    <h3><strong>{{ product.price }} ₽</strong></h3>
+                    <input type="hidden" name="category" value="{{ product.category.name }}">
+                    <input type="hidden" name="product_name" value="{{ product.name }}">
+                    <button type="submit" name="add_to_cart" value="{{ product.id }}">Добавить в корзину</button>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </form>
+    
+</body>
+</html>

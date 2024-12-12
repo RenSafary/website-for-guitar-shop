@@ -1,0 +1,114 @@
+/* Общие стили */
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f4f4f4;
+    font-family: Arial, sans-serif;
+}
+
+/* Стили для заголовка */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    width: 100%;
+}
+
+/* Навигация */
+nav {
+    background-color: #444;
+    color: #fff;
+    padding: 15px;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+nav a {
+    color: #fff;
+    margin: 0 20px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: none;
+}
+
+/* Контейнер для контента */
+.container {
+    width: 80%;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+/* Стили для таблицы */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    text-align: left;
+}
+
+th, td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+td img {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Футер */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+}
+
+.slideshow-container {
+    position: relative;
+    width: 80%;
+    height: 400px;
+    margin: 20px auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.slideshow-images img {
+    width: 100%; /* Занимает всю ширину контейнера */
+    height: auto; /* Автоматическая высота для сохранения пропорций */
+    max-height: 400px; /* Максимальная высота для предотвращения слишком больших изображений */
+    object-fit: cover; /* Подгонка изображения внутри контейнера */
+    display: none; /* По умолчанию скрываем все изображения */
+}
+
+.slideshow-images img.active {
+    display: block; /* Показываем только активное изображение */
+}
+
+.welcome-message {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    color: #333;
+}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гитары от Мансура</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ url_for('static', path='js/main.js') }}" type="text/javascript"></script>
+    <link href="{{ url_for('static', path='css/main.css') }}" rel="stylesheet">
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гитары от Мансура</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link href="{{ url_for('static', path='css/main.css') }}" rel="stylesheet">
+    <style>
+        /* Стили для слайдшоу */
+        .slideshow-container {
+            position: relative;
+            width: 80%;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .slideshow-images img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+
+        .slideshow-images img.active {
+            opacity: 1;
+        }
+
+        .welcome-message {
+            text-align: center;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-top: 20px;
+            color: #333;
+        }
+
+        .main {
+            opacity: 0.6;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Гитары от Мансура</h1>
+    </header>
+    <nav>
+        <a href="/" class="main">Главная</a> |
+        <a href="/accoustic">Акустические</a> |
+        <a href="/classic">Классические</a> |
+        <a href="/electro">Электрические</a> |
+        <a href="/accessories">Аксессуары</a> |
+        <a href="/cart" class="cart">Корзина</a> |
+        {% if user %}
+            <a href="/logout">Выход</a>
+            {% if user.is_superuser %}
+            <a href="/adm-panel">Адм.панель</a>
+            {% endif %}
+        {% else %}
+            <a href="/authorization">Авторизация</a>
+        {% endif %}
+    </nav>
+
+    <div class="welcome-message">Добро пожаловать в гитарный магазин!</div>
+
+    <div class="slideshow-container">
+        <div class="slideshow-images">
+            {% for image in images %}
+            <img src="{{ url_for('static', path='product images/' + image.url) }}" height="300" alt="logo {{ loop.index }}" class="{% if loop.index == 1 %}active{% endif %}">
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
