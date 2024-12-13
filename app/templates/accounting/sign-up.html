@@ -9,15 +9,19 @@
 <body>
 
     <header>
-        Регистрация
+        <h1>Гитары от Мансура</h1>
     </header>
 
     <nav>
-        <a href="/">Главная</a>
-        <a href="/authorization">Авторизация</a>
+        <a href="/" class="main">Главная</a> |
+        <a href="/accoustic">Акустические</a> |
+        <a href="/classic">Классические</a> |
+        <a href="/electro">Электрические</a> |
+        <a href="/accessories">Аксессуары</a>
     </nav>
 
     <div class="container">
+        <h2>Регистрация</h2>
         <form action="/sign-up-create-user" method="post">
             <div class="form-group">
                 <input type="email" id="email" name="email" required placeholder="Введите почту">
@@ -29,9 +33,11 @@
                 <input type="password" id="password" name="password" required placeholder="Введите пароль">
             </div>
             <div class="form-group">
-                <button type="submit">Регистрация</button>
+                <button type="submit">Зарегистрироваться</button>
             </div>
         </form>
+    <p class="no_account">Есть учетная запись?</p>
+    <a href="/authorization" class="auth">Авторизация</a>
     </div>
 </body>
 </html>

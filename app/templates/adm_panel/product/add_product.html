@@ -7,38 +7,36 @@
     <link href="{{ url_for('static', path='css/categories/product/add product.css') }}" rel="stylesheet">
 </head>
 <body>
-    <form action="/add-product/action" method="post" enctype="multipart/form-data">
-        <div class="container">
-            <h1>Добавить продукт</h1>
-            <form action="/add-product/action" method="post" enctype="multipart/form-data">
-                <div>
-                    <label for="name">Название:</label>
-                    <input type="text" id="name" name="name" required>
-                </div>
-                <div>
-                    <label for="photo">Добавить фото:</label>
-                    <input type="file" id="photo" name="photo" accept="image/*" required>
-                </div>
-                <div>
-                    <label for="description">Описание:</label>
-                    <input type="text" id="description" name="description" required>
-                </div>
-                <div>
-                    <label for="price">Цена:</label>
-                    <input type="number" min="0" id="price" name="price" required>
-                </div>
-                <div>
-                    <label for="category">Категория:</label>
-                    <select name="category_id" id="category" required>
-                        {% for category in categories %}
-                        <option value="{{ category.id }}">{{ category.name }}</option>
-                        {% endfor %}
-                    </select>
-                </div>
-                <button type="submit">Добавить</button>
-            </form>
-            <a href="/" class="back-link">Вернуться на главную страницу</a>
-        </div>
-    </form>
+    <div class="container">
+        <h1>Добавить продукт</h1>
+        <form action="/add-product/action" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <label for="name">Название:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="photo">Добавить фото:</label>
+                <input type="file" id="photo" name="photo" accept="image/*" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Описание:</label>
+                <textarea id="description" name="description" rows="1" required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="price">Цена:</label>
+                <input type="number" min="0" id="price" name="price" required>
+            </div>
+            <div class="form-group">
+                <label for="category">Категория:</label>
+                <select name="category_id" id="category" required>
+                    {% for category in categories %}
+                    <option value="{{ category.id }}">{{ category.name }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <button type="submit" class="submit-btn">Добавить</button>
+        </form>
+        <a href="/" class="back-link">Вернуться на главную страницу</a>
+    </div>
 </body>
 </html>

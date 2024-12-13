@@ -33,11 +33,11 @@
         {% endif %}
     </nav>
     
-    <form method="post" action="/creating-order">
-        <div class="container">
-            <div class="products">
-                {% for product in products %}
-                <div class="product">
+    <div class="container">
+        <div class="products">
+            {% for product in products %}
+            <div class="product">
+                <form method="post" action="/creating-order">
                     <img src="{{ url_for('static', path='product images/' + product.photo_url) }}" alt="{{ product.name }}">
                     <h3>{{ product.name }}</h3>
                     <p>{{ product.description }}</p>
@@ -45,10 +45,11 @@
                     <input type="hidden" name="category" value="{{ product.category.name }}">
                     <input type="hidden" name="product_name" value="{{ product.name }}">
                     <button type="submit" name="add_to_cart" value="{{ product.id }}">Добавить в корзину</button>
-                </div>
-                {% endfor %}
+                </form>
             </div>
+            {% endfor %}
         </div>
-    </form>
+    </div>
+    
 </body>
 </html>
